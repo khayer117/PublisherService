@@ -1,6 +1,16 @@
-# 1. Assignment: Docker
-## Repo : 
-https://github.com/khayer-adfenix/publication-service.git
+# Project: Publisher Service
+
+## Technology Stack 
+* ASP.NET Core
+* RabbitMQ
+* Postgresql
+* Entity Framework Code First
+* Docker Composer
+* Kubernetes(ToDo)
+
+## Prerequisite
+* Only Docker
+
 ## Run Project:
 ```shell
 > docker-compose build
