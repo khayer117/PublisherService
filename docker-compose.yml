@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"   
+    hostname: "rabbit"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  postgres:
+    image: postgres:9.5
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=AdfenixTest
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+
+  publicationservice:
+    image: adfenix.publication.service
+    build:
+      context: .
+      dockerfile: AdFenix.Publication.Service/Dockerfile
+    ports:
+      - "8888:80"
+    depends_on: 
+      - rabbitmq
+
+  consumerservice:
+    image: adfenix.consumer.service
+    build:
+      context: .
+      dockerfile: AdFenix.Consumer.Service/Dockerfile
+    ports:
+      - "8889:80"
+    depends_on: 
+      - rabbitmq
+      - postgres
