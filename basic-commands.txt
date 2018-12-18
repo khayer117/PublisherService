@@ -1,0 +1,35 @@
+### docker
+$ docker images
+$ docker ps
+$ docker container ls
+$ docker container ls
+$ docker exec -it [container name] /bin/bash
+$ docker start ab0e37214358 -- start container "ab0e37214358". get id from ps 
+
+###  Connect to postgres container
+$ docker run -p 5432:5432 --name yourContainerName -e POSTGRES_PASSWORD=yourPassword -d postgres -- directly run container
+
+$ docker exec -it publisherservice_postgres_1 /bin/bash  -- after run composer of this project
+$ psql -U postgres
+$ postgres=# \l   --- list database
+$ \connect AdfenixTest -- connect database
+$ AdfenixTest=# select * from "PublicationOwners";  -- query
+
+--- Basic postgres commmand
+http://jazstudios.blogspot.com/2010/06/postgresql-login-commands.html
+--- postgres container directly and connect from diff host
+https://rominirani.com/docker-tutorial-series-part-2-basic-commands-baaf70807fd3
+https://elanderson.net/2018/02/setup-postgresql-on-windows-with-docker/
+
+
+### rabbitmq admin
+http://localhost:15672/#/
+geust/guest
+
+### pg admin
+- Pg admin has been added in docker composer.
+http://localhost:8091
+Connection note: connect with host = postgres NOT with localhost/127.0.0.1 for container to container communication.
+
+- direct run pg admin. But this can not access composer created container due not in same network. But window install pgadmin can access.
+$ docker run -p 8886:80 -e "PGADMIN_DEFAULT_EMAIL=user@domain.com" -e "PGADMIN_DEFAULT_PASSWORD=user123" -d dpage/pgadmin4

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 
 services:
   rabbitmq:
@@ -19,6 +19,14 @@ services:
       - DB_PASSWORD=postgres
     ports:
       - "5432:5432"
+
+  mypgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=user123
+    ports:
+      - "8091:80"
 
   publicationservice:
     image: adfenix.publication.service
