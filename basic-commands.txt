@@ -6,6 +6,20 @@ $ docker container ls
 $ docker exec -it [container name] /bin/bash
 $ docker start ab0e37214358 -- start container "ab0e37214358". get id from ps 
 
+
+docker pull ubuntu
+docker run -it ubuntu
+docker start 9b0db8a30ad1 -- start container
+docker stop xenodochial_neumann -- stop container
+docker rm youthful_roentgen -- remove container
+
+-- install curl
+apt-get update (from / path)
+apt-get install curl
+
+
+
+
 ###  Connect to postgres container
 $ docker run -p 5432:5432 --name yourContainerName -e POSTGRES_PASSWORD=yourPassword -d postgres -- directly run container
 
