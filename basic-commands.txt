@@ -18,6 +18,12 @@ apt-get update (from / path)
 apt-get install curl
 
 
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+source ~/.bashrc
+
+--- Good Answer
+https://stackoverflow.com/questions/50817995/how-to-communicate-between-two-docker-containers-mssql-and-net-core-app-got-c
 
 
 ###  Connect to postgres container
